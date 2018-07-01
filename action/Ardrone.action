@@ -1,9 +1,0 @@
-#The ardrone action server action msg
-#goal
-int32 secondsGoal #size of the side of the square -> the seconds to advance between each side-> integer: 1,2,3,4,5...
----
-#result
-int32 secondsResult #seconds to finish the task -> integer
----
-#feedback
-int32 secondsFeedback #0, 1, 2, 3 -> sides while is getting the state ->integer

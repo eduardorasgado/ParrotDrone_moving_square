@@ -2,7 +2,12 @@
 
 import rospy
 import actionlib
-from actionlib.msg import TestAction, TestGoal, TestResult, TestFeedback
+
+from parrot_moving_square.msg import ArdroneSquareFeedback  as TestFeedback
+from parrot_moving_square.msg import ArdroneSquareResult as TestResult
+from parrot_moving_square.msg import ArdroneSquareAction as TestAction
+from parrot_moving_square.msg import ArdroneSquareGoal as TestGoal
+
 from std_msgs.msg import Empty
 from numbers import Integral
 
@@ -33,7 +38,7 @@ class FlyCaller:
         
         self.state_result = self.square_communication(self.state_result, self.rate, self.client)
         
-        message_result = "[Result] State: ",str(self.state_result)
+        message_result = "[Result] State: "+str(self.state_result)
         rospy.loginfo(message_result)
         
         if self.state_result == self.ERROR:

@@ -4,7 +4,9 @@ import actionlib
 from geometry_msgs.msg import Twist
 import time
 from std_msgs.msg import Empty
-from actionlib.msg import TestFeedback, TestResult, TestAction
+from parrot_moving_square.msg import ArdroneSquareFeedback  as TestFeedback
+from parrot_moving_square.msg import ArdroneSquareResult as TestResult
+from parrot_moving_square.msg import ArdroneSquareAction as TestAction
 
 """
 goal: size of the side of the square -> the seconds to advance between each side-> integer: 1,2,3,4,5...
@@ -113,7 +115,8 @@ class droneflyClass:
         
         if success:
             self._result.result = total_seconds
-            rospy.loginfo("Succeeded moving in a square of size: %i" % goal.goal)
+            msg = "Succeeded moving in a square of size: {} sides, for: {} seconds".format(goal.goal,self._result.result)
+            rospy.loginfo(msg)
             self._as.set_succeeded(self._result)
         
     def taking_off_land_the_drone(self, drone, up_or_down):
