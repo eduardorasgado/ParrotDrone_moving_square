@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="parrot_moving_square" type="parrot_moving_square_client_node.py" name="parrot_moving_square_client_action_node" output="screen" />
+</launch>
